@@ -1,0 +1,26 @@
+- name: Install Erlang
+  shell: yum install -y erlang
+
+- name: Install RabbitMq
+  shell: wget -P /tmp http://www.rabbitmq.com/releases/rabbitmq-server/v3.3.5/rabbitmq-server-3.3.5-1.noarch.rpm; rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc;rpm -ivh /tmp/rabbitmq-server-3.3.5-1.noarch.rpm
+
+- name: Enable Web UI plugin
+  shell: rabbitmq-plugin enable rabbitmq_management
+
+- name: Change Permission
+  shell: chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
+
+- name: Start RabbitMq
+  shell: /usr/sbin/rabbitmq-server &
+
+- name: Setup admin user account
+  shell: rabbitmqctl add_user mqadmin mqadmin
+
+- name: assign administrator role
+  shell: rabbitmqctl set_user_tags mqadmin administrator
+
+- name: Set Permissions
+  shell: rabbitmqctl set_permissions -p / mqadmin ".*" ".*" ".*"
+
+
+

@@ -1,0 +1,9 @@
+---
+
+#- name: configure and deploy the Elasticsearch 
+- hosts: elasticsearch
+  remote_user: root
+
+  roles:
+   - elasticsearch_install
+     

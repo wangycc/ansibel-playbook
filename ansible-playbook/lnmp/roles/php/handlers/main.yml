@@ -1,0 +1,5 @@
+- name: enable php-fpm
+  shell: systemctl enable php-fpm
+
+- name: start php-fpm
+  shell: systemctl start php-fpm

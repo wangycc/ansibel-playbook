@@ -1,0 +1,6 @@
+- name: Install Php5.6
+  shell: yum install --enablerepo=remi --enablerepo=remi-php56 php php-opcache php-pecl-apcu php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof php-pdo php-pear php-fpm php-cli php-xml php-bcmath php-process php-gd php-common
+  poll: 0 
+  notify:
+    - enable php-fpm
+    - start php-fpm

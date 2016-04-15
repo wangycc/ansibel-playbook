@@ -1,0 +1,12 @@
+---
+
+- name: copy the RPM from location
+  copy: src={{ item }}.rpm dest=/tmp/{{ item }}.rpm 
+  with_items:
+   - "{{ jre }}"
+   - "{{ elasticsearch }}"
+
+
+    
+
+

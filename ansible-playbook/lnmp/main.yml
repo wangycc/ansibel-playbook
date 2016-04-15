@@ -1,0 +1,9 @@
+---
+
+- hosts: lnmp
+  sudo_user: root
+  roles:
+    - common
+    - nginx
+    - { role: mysql, tags: mysql_install }
+    - php

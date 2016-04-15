@@ -1,0 +1,4 @@
+---
+
+- include: copy_rpm.yml
+- include: install.yml

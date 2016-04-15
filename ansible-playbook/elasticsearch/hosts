@@ -1,0 +1,10 @@
+[mysql]
+127.0.0.1
+[rabbitmq]
+127.0.0.1
+[elasticsearch]
+10.6.1.101
+[memcache]
+127.0.0.1
+[php-fpm]
+10.6.1.100

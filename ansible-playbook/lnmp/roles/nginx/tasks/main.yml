@@ -1,0 +1,6 @@
+- name: Install Nginx-1.8 software
+  shell: yum install nginx
+  notify: 
+   - start nginx
+   - enable nginx
+

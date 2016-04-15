@@ -1,0 +1,12 @@
+---
+
+- name: Install jre and Elasticsearch
+  shell: rpm -ivh /tmp/{{ item }}.rpm 
+  with_items:
+   - "{{ jre }}"
+   - "{{ elasticsearch }}"
+  notify:
+   - enable elasticsearch
+   - start elasticsearch
+
+

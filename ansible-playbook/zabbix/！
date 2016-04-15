@@ -1,0 +1,18 @@
+#!/bin/bash
+
+group=$1
+instance=$2
+state=$3
+
+subject="[`date +%F" "%T`] Keepalived: [${group}-${instance}]@[`hostname`] CHANGED TO ${state}"
+content=${subject}
+
+from="robot@octinn.com"
+to="wangyichen@octinn.com"
+
+apiurl="http://api.sendcloud.net/apiv2/mail/sendtemplate"
+mailcmd="apiUser=birthday_account&apiKey=Ze9No4DGun7atgOv&from=${from}&replyTo=${to}&templateInvokeName=instance_status"
+xsmtpapi="xsmtpapi={\"to\":[\"${to}\"],\"sub\":{"Subject":[\"${content}\"],\"Body\":[\"${content}\"]}}"
+
+#echo curl -d \'${mailcmd}\' --data-urlencode \'${xsmtpapi}\' \"${apiurl}\"
+curl -d "${mailcmd}" --data-urlencode "${xsmtpapi}" "${apiurl}"

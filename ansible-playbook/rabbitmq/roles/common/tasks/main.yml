@@ -1,0 +1,9 @@
+- name: Install Epele 
+  shell: yum install -y epel-release
+
+- name: Update latest Epel
+  shell: wget -P /tmp http://rpms.famillecollet.com/enterprise/remi-release-7.rpm;rpm -Uvh /tmp/remi-release-7*.rpm 
+  ignore_errors: True
+
+- name: Install initaliztion require software
+  shell: yum install gcc glibc-devel make ncurses-devel openssl-devel autoconf -y

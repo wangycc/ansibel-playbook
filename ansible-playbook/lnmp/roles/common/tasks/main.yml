@@ -1,0 +1,7 @@
+- name: Install Initializtion require Repo
+  shell: yum install -y epel-release -y; rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpmi;rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+  ignore_errors: True
+
+- name: Install Mysql Require Repo.
+  shell: rpm -Uvh http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+

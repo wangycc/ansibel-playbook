@@ -1,0 +1,5 @@
+- name: Install Mysql
+  shell: yum install mysql-community-server
+  notify:
+    - enable mysql
+    - start mysql

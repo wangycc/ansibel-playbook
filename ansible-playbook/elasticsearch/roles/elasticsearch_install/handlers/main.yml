@@ -1,0 +1,7 @@
+---
+
+ - name: enable elasticsearch
+   shell: systemctl enable elasticsearch
+
+ - name: start elasticsearch
+   shell: systemctl start elasticsearch

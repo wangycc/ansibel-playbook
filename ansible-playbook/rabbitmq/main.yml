@@ -1,0 +1,7 @@
+---
+ - hosts: rabbitmq
+   remote_user: root
+   roles:
+     - common
+     - rabbitmq_install
+

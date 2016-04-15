@@ -1,0 +1,18 @@
+---
+
+ - hosts: "{{ host }}"
+   remote_user: "{{ user }}"
+   sudo_user: root
+   sudo: yes
+   vars:
+     Server: 192.168.1.125 
+   
+   tasks:
+   - name: Copy Nginx Start Script To Redhat Client
+     template: src=./zabbix_agentd.conf dest=/etc/zabbix/zabbix_agentd.conf owner=zabbix group=zabbix mode=0644
+     notify:
+       - restart zabbix_agent
+
+   handlers:
+     - name: restart zabbix_agent
+       shell: systemctl restart zabbix-agent
